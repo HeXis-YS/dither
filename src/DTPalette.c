@@ -1,4 +1,4 @@
-/* 
+/*
  *  DTPalette.c
  *  dither Utility
  *
@@ -7,32 +7,27 @@
  */
 
 #include <DTPalette.h>
-#include <stdlib.h>
 #include <math.h>
+#include <stdlib.h>
 
-DTPalette *
-StandardPaletteBW(int size)
-{
-    if (size < 2) return NULL;
+DTPalette *StandardPaletteBW(int size) {
+    if (size < 2) {
+        return NULL;
+    }
 
     DTPalette *palette = malloc(sizeof(DTPalette));
     palette->size = size;
     palette->colors = malloc(sizeof(DTPixel) * size);
 
     float step = 255.0f / (size - 1);
-    for (int i = 0; i < size; i++)
-	palette->colors[i] = PixelFromRGB(
-	    roundf(i*step),
-	    roundf(i*step),
-	    roundf(i*step)
-	);
+    for (int i = 0; i < size; i++) {
+        palette->colors[i] = PixelFromRGB(roundf(i * step), roundf(i * step), roundf(i * step));
+    }
 
     return palette;
 }
 
-DTPalette *
-StandardPaletteRGB()
-{
+DTPalette *StandardPaletteRGB() {
     DTPalette *palette = malloc(sizeof(DTPalette));
     palette->size = 8;
     palette->colors = malloc(sizeof(DTPixel) * 3);
@@ -48,9 +43,7 @@ StandardPaletteRGB()
     return palette;
 }
 
-DTPixel
-FindClosestColorFromPalette(DTPixel needle, DTPalette *palette)
-{
+DTPixel FindClosestColorFromPalette(DTPixel needle, DTPalette *palette) {
     // search for smallest Euclidean distance
     int index;
     int d, minimal = 255 * 255 * 3 + 1;
@@ -58,15 +51,15 @@ FindClosestColorFromPalette(DTPixel needle, DTPalette *palette)
     DTPixel current;
 
     for (int i = 0; i < palette->size; i++) {
-	current = palette->colors[i];
-	dR = needle.r - current.r;
-	dG = needle.g - current.g;
-	dB = needle.b - current.b;
-	d = dR * dR + dG * dG + dB * dB;
-	if (d < minimal) {
-	    minimal = d;
-	    index = i;
-	}
+        current = palette->colors[i];
+        dR = needle.r - current.r;
+        dG = needle.g - current.g;
+        dB = needle.b - current.b;
+        d = dR * dR + dG * dG + dB * dB;
+        if (d < minimal) {
+            minimal = d;
+            index = i;
+        }
     }
 
     return palette->colors[index];

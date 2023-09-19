@@ -1,4 +1,4 @@
-/* 
+/*
  *  MCQuantization.h
  *  dither Utility
  *

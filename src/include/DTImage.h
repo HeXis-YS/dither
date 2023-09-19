@@ -18,11 +18,7 @@ typedef struct {
     byte r, g, b;
 } DTPixel;
 
-typedef enum {
-    t_PPM,
-    t_PNG,
-    t_UNKNOWN
-} DTImageType;
+typedef enum { t_PPM, t_PNG, t_UNKNOWN } DTImageType;
 
 typedef struct {
     int width;
