@@ -6,7 +6,7 @@
  *
  */
 
-#include <DTImage.h>
+#include "DTImage.h"
 #include <png.h>
 #include <stdio.h>
 #include <stdlib.h>

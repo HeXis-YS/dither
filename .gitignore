@@ -2,3 +2,5 @@ dither
 obj/
 imgs/
 *.1
+build
+.vscode

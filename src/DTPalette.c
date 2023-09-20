@@ -6,7 +6,7 @@
  *
  */
 
-#include <DTPalette.h>
+#include "DTPalette.h"
 #include <math.h>
 #include <stdlib.h>
 

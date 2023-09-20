@@ -6,7 +6,7 @@
  *
  */
 
-#include <MCQuantization.h>
+#include "MCQuantization.h"
 #include <math.h>
 #include <stdlib.h>
 

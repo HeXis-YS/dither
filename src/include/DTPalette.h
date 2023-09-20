@@ -9,7 +9,7 @@
 #ifndef DT_PALETTE
 #define DT_PALETTE
 
-#include <DTImage.h>
+#include "DTImage.h"
 
 typedef struct {
     int size;

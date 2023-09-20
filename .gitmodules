@@ -1,0 +1,9 @@
+[submodule "src/libpng"]
+	path = src/libpng
+	url = https://github.com/glennrp/libpng.git
+[submodule "src/zlib-ng"]
+	path = src/zlib-ng
+	url = https://github.com/zlib-ng/zlib-ng
+[submodule "src/Getopt-for-Visual-Studio"]
+	path = src/Getopt-for-Visual-Studio
+	url = https://github.com/skandhurkat/Getopt-for-Visual-Studio

@@ -6,7 +6,7 @@
  *
  */
 
-#include <DTDither.h>
+#include "DTDither.h"
 
 typedef struct {
     short int r, g, b;

@@ -9,8 +9,8 @@
 #ifndef DT_DITHER
 #define DT_DITHER
 
-#include <DTImage.h>
-#include <DTPalette.h>
+#include "DTImage.h"
+#include "DTPalette.h"
 
 void ApplyFloydSteinbergDither(DTImage *image, DTPalette *palette);
 

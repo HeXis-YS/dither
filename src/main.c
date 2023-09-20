@@ -7,15 +7,19 @@
  *
  */
 
-#include <DTDither.h>
-#include <DTImage.h>
-#include <DTPalette.h>
-#include <MCQuantization.h>
+#include "DTDither.h"
+#include "DTImage.h"
+#include "DTPalette.h"
+#include "MCQuantization.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef _MSC_VER
+#include "getopt.h"
+#else
 #include <unistd.h>
+#endif
 
 DTPalette *PaletteForIdentifier(char *s, DTImage *img);
 DTPalette *ReadPaletteFromStdin(int size);
