@@ -165,9 +165,11 @@ int ReadDataFromFile(DTImage *img, FILE *file) {
 
         if (color_type == PNG_COLOR_TYPE_PALETTE) {
             png_set_palette_to_rgb(png);
-        }
-        if (color_type == PNG_COLOR_TYPE_GRAY && bit_depth < 8) {
-            png_set_expand_gray_1_2_4_to_8(png);
+        } else if (color_type == PNG_COLOR_TYPE_GRAY) {
+            if (bit_depth < 8) {
+                png_set_expand_gray_1_2_4_to_8(png);
+            }
+            png_set_gray_to_rgb(png);
         }
 
         if (png_get_valid(png, info, PNG_INFO_tRNS)) {
@@ -178,7 +180,7 @@ int ReadDataFromFile(DTImage *img, FILE *file) {
             png_set_strip_alpha(png);
         }
 
-        if (color_type == PNG_COLOR_TYPE_GRAY || color_type == PNG_COLOR_TYPE_GRAY_ALPHA) {
+        if (color_type == PNG_COLOR_TYPE_GRAY_ALPHA) {
             png_set_gray_to_rgb(png);
         }
 

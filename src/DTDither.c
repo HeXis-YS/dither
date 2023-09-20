@@ -62,8 +62,7 @@ void ApplyDifference(DTPixel *pixel, DTDiff diff, int factor) {
 byte ByteCap(int num) {
     if (num > 255) {
         return 255;
-    }
-    if (num < 0) {
+    } else if (num < 0) {
         return 0;
     }
 

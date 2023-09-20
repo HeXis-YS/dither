@@ -121,33 +121,25 @@ DTPalette *PaletteForIdentifier(char *str, DTImage *image) {
             fprintf(stderr, "Ignored palette size.\n");
         }
         return StandardPaletteRGB();
-    }
-
-    if (strcmp(name, "bw") == 0) {
+    } else if (strcmp(name, "bw") == 0) {
         if (size == 1) {
             fprintf(stderr, "Invalid palette size for B&W. Must be at least 2.\n");
             return NULL;
-        }
-        if (!size) {
+        } else if (!size) {
             size = 2;
         }
         return StandardPaletteBW(size);
-    }
-
-    if (strcmp(name, "custom") == 0) {
+    } else if (strcmp(name, "custom") == 0) {
         if (!size) {
             fprintf(stderr, "Size required for custom palette, aborting.\n");
             return NULL;
         }
         return ReadPaletteFromStdin(size);
-    }
-
-    if (strcmp(name, "auto") == 0) {
+    } else if (strcmp(name, "auto") == 0) {
         if (!size) {
             fprintf(stderr, "Size required for automatic palette, aborting.\n");
             return NULL;
-        }
-        if (size & (size - 1)) {
+        } else if (size - 1) {
             fprintf(stderr, "Size must be a power of 2, aborting.\n");
             return NULL;
         }

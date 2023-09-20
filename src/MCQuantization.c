@@ -122,21 +122,17 @@ void MCShrinkCube(MCCube *cube) {
 
         if (r < cube->min.value[0]) {
             cube->min.value[0] = r;
+        } else if (r > cube->max.value[0]) {
+            cube->max.value[0] = r;
         }
         if (g < cube->min.value[1]) {
             cube->min.value[1] = g;
+        } else if (g > cube->max.value[1]) {
+            cube->max.value[1] = g;
         }
         if (b < cube->min.value[2]) {
             cube->min.value[2] = b;
-        }
-
-        if (r > cube->max.value[0]) {
-            cube->max.value[0] = r;
-        }
-        if (g > cube->max.value[1]) {
-            cube->max.value[1] = g;
-        }
-        if (b > cube->max.value[2]) {
+        } else if (b > cube->max.value[2]) {
             cube->max.value[2] = b;
         }
     }
